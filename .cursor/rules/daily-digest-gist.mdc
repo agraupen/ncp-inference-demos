@@ -1,0 +1,54 @@
+---
+description: Daily communications digest — last 7 days, themes, my actions; when user asks for daily digest, morning digest, or communications digest.
+alwaysApply: false
+---
+
+# Daily communications digest (stub)
+
+When the user asks for a **daily digest**, **morning digest**, **communications digest**, or similar:
+
+## Window and sources
+
+- **Window:** last **7 days** from “today” (use the date in user_info when present).
+- **Sources:** Use every **available** tool (e.g. Outlook / Graph via MCP). If Teams, Slack, or transcripts are **not** available, add a one-line note under **Source Gaps** and continue—do not invent data.
+
+## User preferences (edit this block in the rule file)
+
+**Preferred themes (3–8)** — replace with yours; the digest should **promote** these when mail touches them:
+
+- Customer or account escalations and unblockers (P0/P1, exec-visible)
+- Executive or leadership asks where you are named or clearly the owner
+- NCP / inference / platform delivery risks, dates, or scope changes
+- Security, compliance, or legal threads that need a response
+- Partner or vendor follow-ups you own (contracts, integrations, joint reviews)
+- Hiring, staffing, or interview loops you are responsible for
+- Meetings that produced **your** action items or decisions waiting on **you**
+
+**Usually ignore** — skim or omit unless something is clearly urgent or assigns you:
+
+- Newsletters, digests, “weekly roundup,” marketing, webinars, training invites
+- Automated mail (Jira, Confluence, GitLab, CI, calendar bots) unless you are @mentioned or assigned
+- Broad FYI threads where you are not on To/Cc as an owner and no ask is stated
+- Recurring standup notes with no new ask
+
+**More theme ideas** (swap in if relevant): product-launch blockers; revenue or pipeline risks; specific customer names or programs you always want called out; “Top 5 Things” or internal comms you must track; cross-team dependencies on your team.
+
+## Behavior
+
+- Cluster items into **themes**; **promote** the preferred themes above when they appear; still surface other important themes.
+- **Deduplicate** the same ask across channels.
+- **Actions:** Only list items **owned by the user** when the source clearly asks them, assigns them, or they explicitly committed. Put lower-confidence items under **Other Possible Actions**.
+- Prefer **identifiers** (message/thread/event hints) when the tool returns them.
+
+## Output format (markdown)
+
+Use this structure (keep concise):
+
+1. **Title:** `# Daily Communications Digest`
+2. One line: **Coverage** + **Window**
+3. **`## High-Priority Actions`** — owner me, action, source, due/urgency, why it matters
+4. **`## Main Themes`** — per theme: what it is, key people, important updates, open actions, sources
+5. **`## Other Possible Actions`**
+6. **`## Source Gaps`** — unavailable or failed sources
+
+Optional: if the user keeps a full copy of **Daily Digest Gist.md** on disk, they may @‑mention it; treat it as authoritative for wording and tuning if it conflicts with this stub.
