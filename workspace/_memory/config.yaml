@@ -1,0 +1,58 @@
+# CO-SA memory: global configuration (seeded by co-sa/skills/init.md).
+# Edit values to match your SA profile and tool preferences.
+
+schema_version: 1
+
+last_updated: "2026-04-17T12:00:00Z"
+
+sa_profile:
+  name: "Aviv Graupen"
+  email: "agraupen@nvidia.com"
+  department: ""
+  manager: ""
+  manager_email: ""
+  specialization:
+    - "Cloud / Data Center"
+    - "NCP Reference Design"
+  primary_products:
+    - "NCP Inference RA"
+    - "NCX / Cloud Accelerator"
+    - "Enterprise RA (RTX PRO / Spectrum networking)"
+  region: ""
+
+preferences:
+  # Guided: suggest actions; confirm before writing externally.
+  autonomous_enabled: false
+  morning_update_auto: false
+  archive_remind: true
+  terse_mode: false
+  workspace_path: "workspace"
+  update_cadence:
+    morning: "09:00"
+    weekly: "Friday 16:00"
+    monthly: "Last Friday 16:00"
+  pm_enabled: true
+  pm_cadence:
+    mid_morning: "10:30"
+    end_of_day: "16:30"
+  focus_areas:
+    - "repeating-info"
+  top5_confluence_page: ""
+  top5_exemplar_senders: []
+
+mcps:
+  required:
+    outlook: true
+    slack: false
+    nvinfo: false
+  optional:
+    nvbugs: true
+    jira: true
+    glean: true
+    google_drive: true
+    sharepoint: true
+    gitlab: true
+    onedrive: true
+    confluence: true
+    nsight_cuda: true
+    vlm_screen: false

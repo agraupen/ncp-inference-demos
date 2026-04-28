@@ -1,0 +1,15 @@
+# CO-SA memory: rolling "where we are now" snapshot for agents and humans.
+
+schema_version: 1
+
+last_check: "2026-04-17T12:00:00Z"
+
+current_focus: "NCP Reference Design (inference stack, networking, RTX PRO AI Factory); customer confirmation for tracked accounts pending."
+
+pending_items:
+  - "Confirm which external customers to track (Verda and others) after skipping confirmation UI."
+
+recent_activity: "Co-SA init completed: questionnaire (NCP RD focus, friction=repeating info, portfolio 4–8, guided autonomy, morning+EOD briefings); Outlook mail/calendar scanned; GitLab owned projects listed; Slack/NVINFO not in MCP catalog."
+
+alerts:
+  - "Slack and NVINFO MCPs not exposed in this workspace — manager/department NVINFO enrichment skipped."

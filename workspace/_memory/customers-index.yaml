@@ -1,0 +1,6 @@
+# CO-SA memory: accounts / customers overview.
+
+schema_version: 2
+
+customers: []
+# Init: no external customer rows confirmed (confirmation UI skipped). Candidate from mail/calendar: Verda.

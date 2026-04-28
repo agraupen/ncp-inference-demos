@@ -1,0 +1,11 @@
+# CO-SA memory: distilled learnings.
+
+schema_version: 1
+
+insights:
+  - date: "2026-04-17"
+    category: "process"
+    insight: "Repeating the same information across tools is a top friction — use full-refresh and customer-brief to keep a single workspace source of truth."
+    source: "co-sa-init questionnaire (Q3)"
+    actionable: true
+    action_taken: "Mapped to focus_areas: repeating-info; emphasize full-refresh + customer-brief skills."

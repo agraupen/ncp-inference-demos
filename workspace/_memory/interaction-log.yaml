@@ -1,0 +1,15 @@
+# CO-SA memory: append-only log of touchpoints.
+
+schema_version: 1
+
+entries:
+  - timestamp: "2026-04-17T12:00:00Z"
+    type: "note"
+    subject: "co-sa-init completed"
+    participants: []
+    summary: "Questionnaire: NCP RD vertical/product focus; pain=repeating info; portfolio 4–8; guided autonomy; morning+EOD briefings; no free-form notes. MCP: Outlook healthy (agraupen@nvidia.com); GitLab, Glean, Confluence, NVBugs healthy; Slack/NVINFO not in catalog. Mail sample: NCP RD/NCCL/SPCX threads; Verda cadence; Co-SA announcement. Calendar: Verda weekly cadence, SA org meetings. GitLab: 73 owned projects (wwfo/astra). Customer/project AskQuestion skipped by user."
+    related_customer: null
+    related_project: null
+    action_items:
+      - "Optionally confirm tracked customers (e.g. Verda) and seed workspace/Customers/."
+      - "Connect Slack + NVINFO MCPs when available for full required stack."

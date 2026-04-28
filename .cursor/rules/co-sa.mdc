@@ -1,0 +1,15 @@
+---
+description: Co-SA (Co-Solutions Architect) — read memory and follow Co-SA procedures
+globs:
+  - "nv-co-sa/**"
+  - "workspace/**"
+---
+
+# Co-SA (NVIDIA)
+
+- **Role & scope:** Read **`nv-co-sa/co-sa/co-sa.agent.md`** for the canonical Co-SA / SA role definition.
+- **Operations:** Follow **`nv-co-sa/co-sa/procedures.md`** for operational behavior, terse mode, and handoff conventions.
+- **Preferences & context:** Read **`workspace/_memory/config.yaml`** (repo root) for SA profile and automation preferences; read **`workspace/_memory/context.yaml`** for rolling handoff context. Legacy copies may exist under `nv-co-sa/workspace/_memory/` — prefer repo-root `workspace/` when present.
+- **Policies:** Respect NVIDIA policies and confidentiality. If an MCP call fails, surface the error and continue with what is available—do not invent mail, calendar, or HR data.
+
+When working under `nv-co-sa/`, prefer skills in **`nv-co-sa/co-sa/skills/`** and templates under **`nv-co-sa/co-sa/templates/`**.

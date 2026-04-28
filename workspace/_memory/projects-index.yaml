@@ -1,0 +1,34 @@
+# CO-SA memory: index of engagements / projects.
+
+schema_version: 1
+
+projects:
+  - id: "ncp-inference-demos"
+    name: "NCP Inference demos / local Co-SA workspace"
+    customer: ""
+    status: "active"
+    priority: "P2"
+    path: "workspace/Projects/ncp-inference-demos"
+    created: "2026-04-17"
+    last_updated: "2026-04-17T12:00:00Z"
+    tags:
+      - "ncp"
+      - "inference-ra"
+      - "repo"
+
+  - id: "ncx-infra-controller-core"
+    name: "NCX Infra Controller Core (NICo / Carbide)"
+    customer: ""
+    status: "active"
+    priority: "P2"
+    path: "workspace/Projects/ncx-infra-controller-core"
+    created: "2026-04-23"
+    last_updated: "2026-04-23T00:00:00Z"
+    tags:
+      - "ncx"
+      - "bare-metal"
+      - "nic"
+      - "repo"
+    links:
+      github: "https://github.com/NVIDIA/ncx-infra-controller-core"
+      docs: "https://nvidia.github.io/ncx-infra-controller-core/"

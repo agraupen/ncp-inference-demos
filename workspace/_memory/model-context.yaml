@@ -1,0 +1,33 @@
+# CO-SA memory: model accumulated understanding — local only, gitignored via workspace/.
+
+schema_version: 1
+last_updated: "2026-04-17"
+
+communication:
+  style: "Guided autonomy — prefers suggestions and confirmation before outbound or customer-facing writes."
+  abbreviations: []
+  addressing: ""
+  corrections_given: []
+
+working_patterns:
+  schedule: "Morning + end-of-day touchpoints (pm_cadence)."
+  tools:
+    - "Outlook"
+    - "GitLab"
+    - "Glean"
+    - "Confluence"
+    - "NVBugs"
+  workflow_notes:
+    - "Pain point: repeating the same information across tools — prioritize full-refresh and customer-brief skills."
+
+domain_knowledge:
+  ncp_rd:
+    summary: "Focus on NVIDIA Cloud Partner reference designs: NCP Inference RA, NCX docs, Enterprise RA patterns (E/W compute fabric, N/S converged, OOB), RTX PRO AI Factory hardware BOM context."
+  inferred_mail_signals:
+    - "Active threads on NCP RD scope vs NCCL/SPCX HW multiplane; Verda cadence and technical contact."
+
+corrections: []
+
+sessions:
+  - date: "2026-04-17"
+    summary: "co-sa-init: questionnaire + MCP health + mail/calendar scan + GitLab owned repos; customer/project UI confirmation skipped by user."
