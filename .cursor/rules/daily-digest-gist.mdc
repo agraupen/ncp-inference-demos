@@ -1,8 +1,7 @@
 ---
-description: Daily communications digest — last 7 days, themes, my actions; when user asks for daily digest, morning digest, or communications digest.
+description: Daily communications digest — last 7 days, email + Teams + Slack + transcripts, themes, my actions; when user asks for daily digest, morning digest, or communications digest.
 alwaysApply: false
 ---
-
 # Daily communications digest (stub)
 
 When the user asks for a **daily digest**, **morning digest**, **communications digest**, or similar:
@@ -10,7 +9,18 @@ When the user asks for a **daily digest**, **morning digest**, **communications 
 ## Window and sources
 
 - **Window:** last **7 days** from “today” (use the date in user_info when present).
-- **Sources:** Use every **available** tool (e.g. Outlook / Graph via MCP). If Teams, Slack, or transcripts are **not** available, add a one-line note under **Source Gaps** and continue—do not invent data.
+
+- **Canonical coverage** (pull **every** source below that exists in the environment; same 7-day window unless the tool’s API requires different bounds—then state that in **Source Gaps**):
+
+  1. **Email** — Outlook / Microsoft Graph (e.g. inbox, sent, key folders via MCP). Respect internal-only / filtered-mail notes from the connector.
+  2. **Microsoft Teams — chats** — 1:1 and group chats the user participates in; recent messages in the window. Use Teams MCP / Graph tools when present; read tool schemas before calling.
+  3. **Microsoft Teams — channels** — teams and channels the user can access; recent channel posts in the window. Prefer listing teams → channels → messages when the API is structured that way.
+  4. **Microsoft Teams — meetings and transcripts** — meetings from **calendar** in the window (`outlook_list_calendar_view` / `outlook_list_events` or Teams calendar tools), then **transcripts** or **notes** for meetings where transcription or recap exists and the tool can read them. If only subject/attendees are available, say so and still list **meeting-backed follow-ups** when obvious from titles or calendar body.
+  5. **Slack** — workspaces the user has connected (MCP, API, or CLI). Search or list channels/DMs relevant to the user in the window; include thread context when the tool supports it.
+
+- **Discovery:** Before claiming **Source Gaps**, check the workspace **MCP tool descriptors** (and any server instructions) for Teams- or Slack-related servers. If no such tools exist, state **“Teams not connected”** / **“Slack not connected”** explicitly.
+
+- **If a source fails or is unavailable:** one line under **Source Gaps** per source, then **continue** with what worked—**do not invent** chats, posts, or transcript content.
 
 ## User preferences (edit this block in the rule file)
 
@@ -36,18 +46,19 @@ When the user asks for a **daily digest**, **morning digest**, **communications 
 ## Behavior
 
 - Cluster items into **themes**; **promote** the preferred themes above when they appear; still surface other important themes.
-- **Deduplicate** the same ask across channels.
-- **Actions:** Only list items **owned by the user** when the source clearly asks them, assigns them, or they explicitly committed. Put lower-confidence items under **Other Possible Actions**.
-- Prefer **identifiers** (message/thread/event hints) when the tool returns them.
+- **Deduplicate** the same ask across **email, Teams (chat + channel), Slack, and meeting notes/transcripts**—one bullet in **Main Themes** or **High-Priority Actions**, with **all** source types that mentioned it.
+- **Actions:** Only list items **owned by the user** when the source clearly @mentions them, assigns them, or they explicitly committed (including in Teams/Slack). Put lower-confidence items under **Other Possible Actions**.
+- Prefer **identifiers** (message id, thread id, channel name, team name, meeting id, event id, web link) when the tool returns them.
+- For **RE:** / **FW:** email threads, prefer **conversation** tools when available so theme summaries match the full thread.
 
 ## Output format (markdown)
 
 Use this structure (keep concise):
 
 1. **Title:** `# Daily Communications Digest`
-2. One line: **Coverage** + **Window**
+2. One line: **Coverage** (explicitly list which of **Email**, **Teams chat**, **Teams channels**, **Teams meetings/transcripts**, **Slack** were included) + **Window**
 3. **`## High-Priority Actions`** — owner me, action, source, due/urgency, why it matters
-4. **`## Main Themes`** — per theme: what it is, key people, important updates, open actions, sources
+4. **`## Main Themes`** — per theme: what it is, key people, important updates, open actions, **sources** (mail thread / Teams chat or channel / meeting title / Slack channel or DM as applicable)
 5. **`## Other Possible Actions`**
 6. **`## Source Gaps`** — unavailable or failed sources
 
