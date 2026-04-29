@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>סוכן מקומי — דפדפן</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <h1>סוכן אוטומטי מקומי</h1>
+      <p class="muted">
+        רץ על המחשב שלך בלבד. ללא פקודות ידניות: הפעל את
+        <code>start.bat</code>
+        מתיקיית הפרויקט.
+      </p>
+    </header>
+
+    <section class="panel">
+      <h2>הגדרות מודל (אופציונלי)</h2>
+      <label>מפתח API <input id="apiKey" type="password" autocomplete="off" placeholder="או השאר ריק למצב הדגמה" /></label>
+      <label>Base URL <input id="baseUrl" type="text" value="https://api.openai.com/v1" /></label>
+      <label>מודל <input id="model" type="text" value="gpt-4o-mini" /></label>
+      <p class="small muted">
+        המפתח נשלח לשרת המקומי בלבד (localhost) ולא נשמר בדיסק בשרת. בדפדפן אפשר לא לשמור אם לא תרצה.
+      </p>
+    </section>
+
+    <section class="panel chat">
+      <h2>שיחה</h2>
+      <div id="log" class="log" aria-live="polite"></div>
+      <div class="row">
+        <textarea id="input" rows="3" placeholder="כתוב כאן…"></textarea>
+        <div class="actions">
+          <button type="button" id="send">שלח</button>
+          <button type="button" id="agent" class="secondary">הרץ סוכן (כלי זמן/חישוב)</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="muted small">
+      לא ייעוץ פיננסי. לדמו טכני בלבד.
+    </footer>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
