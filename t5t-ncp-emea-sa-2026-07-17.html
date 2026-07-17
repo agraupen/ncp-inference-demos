@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #000000; line-height: 1.5; }
+p { margin: 0 0 14px 0; }
+.note { font-size: 10pt; color: #444444; font-style: italic; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<p>Hi all,</p>
+
+<p class="note">Updates since last T5T (3 Jul 2026). Window: 4–17 Jul 2026. Sources: Outlook (Inbox/Sent/account threads), Slack, Confluence (NCP RD Matrix / VR NVL72 Readiness), NCP RD DC Dashboard (localhost:5175, seed baseline 30 Jun — supplementary). Teams MCP needs auth; Salesforce not queried this run. ECI filters external customer mail.</p>
+
+<p><strong>Nebul:</strong> (AM: @Christophe Bour · NCP SA: @Aviv Graupen · Networking SA: @Emre Ogmen · Assisting SAs: @Phil Hooker, @Lida Sadeghioon – DSX OS · Principal SA: @Gabriele Paciucci · Networking BoM: @Raf Vervloessem)<br>
+Offtake: Major new motion — <strong>139× GB300 NVL72 Romania</strong> (~10K GPUs, opp NEBUL_HGX GB300 NVL72 139x_Romania_10K) + <strong>1K VR NVL72 Amsterdam</strong> (14 racks); Dell special-pricing / Nebul Deal thread active; Project Champion procurement with Bain advancing.<br>
+Offtaker: Romania DC anchor is <strong>JD.com</strong>; Christophe RAISE — two strategic projects with off-takers, DCs and investors secured.<br>
+Cloud: Nebul network design for JD.com (DDN AI400X3/I, multi-tenancy); live inference NCP (~200 GPUs) scaling to 2K–9K B200/GB300; Dynamo in production (public-sector, FSI, healthcare).<br>
+Capacity coming online: Romania (~10K) and Amsterdam (1K VR) build planning underway; Aivres positioning discussed with China team — no DC/MW live-date confirmed yet.<br>
+VR NVL72 prep: GB300 + VR NVL72 BoMs / networking opps created in SFDC (Raf).<br>
+Technical: DDN × NVIDIA × Nebul KV-cache POC (Infinia + NIXL plugin; joint blog planned); NICo / NVSentinel / gap-analysis follow-ups; Slack — Dynamo KV-cache validation + DS v4 optimisation offer discussion.<br>
+Future plans: Advance Romania/JD.com design + Dell special pricing; complete JD.com storage/network design; continue DDN KV POC + Dynamo; schedule NICo/NVSentinel follow-ups.<br>
+<em>Note: RD DC dashboard seed still shows “signal search” — superseded by mail above.</em></p>
+
+<p><strong>Verda (DataCrunch):</strong> (AM/PBM: @Neil Christie, @Max Druey · NCP SA: @Aviv Graupen · NVIS: @Mali Khalifa · Software stack: @Lida Sadeghioon, @Laura Morselli · Dynamo: @Ian Andrews, @Dmitry Mironov · Networking: @Emre Ogmen)<br>
+Offtake: R200 &amp; VR200 BoMs in progress; BF4 NIC for Rubin NVL8/NVL72 discussion; Neil notes Verda still asks component-level questions (OEM mindset — steer to NCP model).<br>
+Cloud: Bi-weekly Verda &lt;&gt; NVIDIA Dynamo sync running; DC footprint spans Finland, Sweden, Germany, UK, France, Santa Clara, Korea, Japan, Singapore.<br>
+Capacity coming online: <strong>RA Datacenter thread progressing toward handover</strong> (Neil, Jorge Santos/Verda, Taru Kalliovaara, Michael Holm, Adrián García Castro); dashboard flags Verda vs DataCrunch role mapping still needed.<br>
+VR NVL72 prep: VR200 NVL72 BF4 / CX-9 component selection ongoing.<br>
+Technical: LPX-for-Verda engineering session scheduling (Ian Andrews / Neil / Max) — Dynamo fit + scale, target after 19 Aug (Aviv PTO 5–19 Aug); Slack — Verda in DS v4 optimisation offer thread.<br>
+Future plans: Complete RA DC handover; run LPX/Dynamo engineering session; progress R200/VR200 BoMs; clarify Verda/DataCrunch ownership per RD DC dashboard.</p>
+
+<p><strong>Fossefall:</strong> (NCP SA: @Aviv Graupen · AM/PBM: @Neil Christie, @Ed Oakes · Software: @Lida Sadeghioon, @Laura Morselli · Networking: @Emre Ogmen, @Malte Bors · Storage: @Phil Hooker · DC: @Vladimir Prodanovic)<br>
+Offtake: <strong>16× GB300 NVL72</strong> (NCP RA on XDR) — order expected shortly (Networking T5T); NCP SW &amp; Support quote path for 1,152 GPUs via TD Synnex / Computacenter UK still active from prior cadence.<br>
+Cloud: No material update.<br>
+Capacity coming online: Stockholm DC / 1 MW GB300 project in quoting; <strong>backup-power / SLA</strong> thread with Espen Fjeldberg; RD DC dashboard — GB300 ARB input pack incomplete: needs DC location, rack layout, <strong>main power</strong>, UPS, <strong>CDU/liquid cooling</strong>, PG25 storage, construction timeline, deviation/risk log.<br>
+VR NVL72 prep: GB300 NVL72 BoM update ongoing — DDN storage connectivity; Computacenter Dell PowerSwitch S4148T-ON for DDN in-band mgmt; ARB approval in progress (networking POV OK).<br>
+Technical: BoM amendment (SN3420 → 2× SN2201 for 1G RJ45); storage options with DDN (Gareth Wilson) open; dashboard — cluster scale must be locked early (core network sized for max capacity).<br>
+Future plans: Close BoM amendment + ARB approval; fill GB300 ARB DC-readiness fields with named owners; confirm storage/networking sourcing with Computacenter + Dell; track PO landing.</p>
+
+<p><strong>G-Core:</strong> (NCP SA: @Aviv Graupen · AM: @Christophe Bour · Networking SA: @Emre Ogmen · DSX OS SW Enablement: @Lida Sadeghioon, @Laura Morselli · DevRel: @Alexander Kurakin · NVIS: @Mali Khalifa · Dynamo/inference: @Dmitry Mironov, @Nikolay Kulikov · Principal SA: @Gabriele Paciucci · Networking BoM: @Raf Vervloessem)<br>
+Offtake: Navitas / Gcore GB300 POC — NVIS scope &amp; next steps + follow-up meeting scheduled; RAISE — CxO meeting with G-Core, Aleria, SMC, Mbuzz on AMI Labs situation; Johan Ruiz (G-Core) introduced.<br>
+Cloud: GCORE / NVIDIA “Everywhere AI” deep-dive (Seva Vayner, Gabriele Paciucci); DeepSeek V4 optimization placeholder (Ziv Ilan); Orange AI-GRID / inference sync threads carried from prior cadence.<br>
+Capacity coming online: No new MW/DC live-date in internal mail; Confluence — Gcore listed as infrastructure ISV on VR NVL72 Readiness page.<br>
+VR NVL72 prep: Navitas/Gcore GB300 POC design + NVIS packages progressing; dashboard suggests narrowing DSX OS pilot scope (site, HW, acceptance criteria).<br>
+Technical: GB300 POC NVIS scope alignment; Everywhere AI deep-dive; DeepSeek V4 optimization; DevRel alignment flagged.<br>
+Future plans: Run GB300 POC NVIS follow-up; Everywhere AI deep-dive; resolve AMI Labs commercial situation; Orange AI-GRID solution sessions; define smallest useful RD DC pilot per dashboard checklist.</p>
+
+<p><strong>Infra2tokens:</strong> (NCP SA: @Aviv Graupen · AM: @Tareq Samara · NVIS: @Mali Khalifa, @Bernhard Schimpl · Networking: @Emre Ogmen · Storage: @Phil Hooker)<br>
+Offtake: Project on hold pending off-take discussions, simplified contracts, and DC space selection for future scaling — no change this window.<br>
+Cloud: No material update.<br>
+Capacity coming online: Still searching suitable DC space; dashboard (Red) — account context thin; confirm legal name / stakeholders before actioning.<br>
+VR NVL72 prep: HGX B300 RD SPECX — 576-node / 4,608-GPU design with path to 10K GPU topology (carried from May); Confluence — B300 IB collapsed RD updated Jun 2026.<br>
+Technical: No new internal mail 4–17 Jul; last activity May Tech Roadmap sync (B200 single-plane vs B300 dual-plane; Vera Rubin + LPU + CMX/BF4 deep-dive).<br>
+Future plans: Await customer off-take / DC progress; resume SPECX if reactivated; refresh dashboard once account facts confirmed.</p>
+
+<p><strong>OVH (OVHcloud):</strong> (AM: @Christophe Bour · NCP SA: @Aviv Graupen · Networking/RD: @Mazen Al Jundi, @Frank Lorentz · Software: @Ali Cavit Davutoglu · Principal SA: @Gabriele Paciucci · DevRel: @Rama Darbha, @Alexander Kurakin · Exec sponsor: @Boris Neiman)<br>
+Offtake: First AI-factory order context — <strong>1× GB300 NVL + 4× VR NVL</strong> racks; RAISE — OVH revenue-sharing model discussed.<br>
+Cloud: Dragon LLM &amp; Qwant paired with OVH as offtaker/NCP motion; sovereign-cloud positioning.<br>
+Capacity coming online: No new DC/MW live-date in internal mail; dashboard (Green) — convert DSX OS / facility discussion into readiness checklist + review cadence.<br>
+VR NVL72 prep: Reference Architecture for VR200 NVL72 — 2SU Vera Rubin NVL72; IB vs Spectrum-X (SN6600-LD / SN6810-LD) sizing with Mazen Al Jundi.<br>
+Technical: RD spine/compute fabric exchange ongoing; DevRel kickoff with Rama/Alexander per Christophe.<br>
+Future plans: Finalize VR200 NVL72 RD; confirm fabric choice (IB vs Spectrum-X); run RD DC readiness checklist per dashboard.</p>
+
+<p><strong>Epic group:</strong> (AM: @Boris Neiman · NCP SA: @Aviv Graupen)<br>
+Offtake: No PO/allocation signal this window.<br>
+Cloud: No material update.<br>
+Capacity coming online / Main power: NCP 10,368 GPU power-planning summary under review for Roni/Epic site feasibility (~20.7 MW IT / ~23.9–27 MW facility planning from prior deck); dashboard (Yellow) — business driver + HW BOM still need sharper definition.<br>
+VR NVL72 prep: No GB300/NVL72 validation thread this window.<br>
+Technical: Power-planning PDF vs NCP Power Request deck review ongoing (Boris CC’d).<br>
+Future plans: Close deck/PDF review; await Epic site power-capacity feedback; run minimum RD DC input discovery per dashboard.</p>
+
+<p><strong>I3D (Ubisoft):</strong> (Ubisoft AM: @Edouard Renoux · Gen Accounts: @Sieto Bloemkolk · PBM: @Alexander Nardella · NCP SA: @Aviv Graupen · Networking: @Emre Ogmen · Assisting: @Raf Vervloessem, @Channah Blocq · NCP support: @Christophe Bour)<br>
+Offtake: I3D NCP RD for <strong>5K HGX B300</strong> — summary &amp; next steps circulated; 97% Ubisoft-owned but operates independently; also partnering with another NCP/VAR for ~1K GPUs.<br>
+Cloud: Gaming / inferencing / low-latency / edge use cases from prior GTC/GDC engagement.<br>
+Capacity coming online: Early qualification — no DC/MW live-date; dashboard (Yellow) — RD DC sponsor + DSX OS validation owner not locked.<br>
+VR NVL72 prep: 5K HGX B300 RD/BOM shared; I3D reviewing BOM + deck.<br>
+Technical: Open question NCP vs AI Factory vs buy-through existing NCPs; coverage assigned — Edouard (AM) + Sieto (local) + Alex Nardella (PBM); qualification call being set up.<br>
+Future plans: Confirm NCP fit/size on alignment call (Edouard / Alex / Aviv); map facility, HW, network, DSX OS owners per dashboard asks.</p>
+
+<p>Thanks,<br>Aviv</p>
+
+</body>
+</html>
