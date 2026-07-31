@@ -4,7 +4,8 @@ description: >-
   Drafts "Top 5 Things - NCP | EMEA | SA" customer updates from Outlook, Slack,
   Confluence, Teams, Salesforce, and the local NCP RD DC Dashboard (localhost:5175).
   Boris-style compact sections. Hunts DC/site readiness signals (power, CDU
-  commissioning, rack install, site visits, offtaker). Use when the user asks for
+  commissioning, rack install, site visits, offtaker) and NCP qualification
+  signals (demand, power, operated stack, ISP/inference-platform funding). Use when the user asks for
   biweekly T5T, Top 5 Things NCP EMEA SA, folder-based account digests, or recurring
   account email drafts from specific mailbox folders under Customers.
 ---
@@ -14,6 +15,23 @@ description: >-
 ## Goal
 
 Produce **draft sections** (and optional full email shell) for **Top 5 Things - NCP | EMEA | SA**, one **customer block** per account. Default cadence: **since the user’s last sent T5T** (found in **Sent Items**), or an explicit `start_date`.
+
+## NCP qualification lens (always apply)
+
+**Market context:** Inference platforms (ISPs / anchor tenants) are getting **funded at scale**. Treat offtaker + ISP pairing, PO/allocation, and investor/funding threads as first-class signals — not just “future customer interest.”
+
+**Qualification bar:** NCP qualification now needs **demand + power + operated stack** — all three, not hardware-only:
+
+| Pillar | What to hunt | Where it usually shows up |
+|--------|--------------|---------------------------|
+| **Demand** | Anchor offtaker / ISP tenant, workload tenant, PO or allocation path, opp stage, contracted capacity, investor secured | **Offtake**, mail-referenced SFDC opps, Christophe/AM trip reports |
+| **Power** | MW / utility power, PUE, main power, UPS, backup-power SLA, site feasibility, construction timeline | **Capacity coming online**, Epic power-planning threads, dashboard ARB DC fields |
+| **Operated stack** | DSX OS / managed K8s substrate, NICo/NVSentinel, provisioning path, multitenancy, storage/network validation, break-fix / inventory / telemetry readiness | **Technical**, **Cloud**, dashboard DSX OS + GB300 ARB software inputs |
+
+**Authoritative reference (do not invent requirements beyond sources):**
+[NVIDIA Inference Provider Platform Requirements for NCPs](https://docs.nvidia.com/dsx/ncp/inference-provider-requirements/home) — GB300 NVL72 cluster the NCP **operates** (substrate) so ISPs can deploy inference platforms on managed Kubernetes. NCP owns facility adherence (RD-1), hardware validation (HW-*), networking/multi-tenancy (NET-*), storage (STR-*), managed K8s / KaaS (KUB-*), inventory & telemetry; ISP owns the inference software stack above the cluster boundary.
+
+When drafting, **call out gaps explicitly** (e.g. “power planning active but operated-stack / DSX OS owner not locked”) rather than implying qualification is complete.
 
 ## Preconditions
 
@@ -103,16 +121,24 @@ Or parse saved HTML for:
 | **Rack install** | racks installed, racking, cabling, cable pull, DC visit, on-site install |
 | **Site visit / planning** | site visit complete, site survey, site planning, floor plan, white space |
 | **Offtaker / anchor** | offtaker, anchor customer, anchor tenant, end customer, workload tenant |
+| **ISP / inference platform** | inference platform, ISP, inference service provider, managed Kubernetes for tenant, Dynamo/production inference, funding secured, investor |
+| **Operated stack** | DSX OS, managed Kubernetes, KaaS, NICo, NVSentinel, GPU Operator, multitenancy, inventory service, break-fix, provisioning, IaaS OS install |
 
 **Map to Boris sections:**
 
-- **Offtake** — PO/allocation **and** offtaker pairing.
-- **Capacity coming online** — site readiness, main power, MW/DC dates, rack install/cabling, dashboard ARB/DC readiness gaps.
+- **Offtake** — PO/allocation, offtaker/ISP pairing, **demand** pillar (funding / investor / anchor tenant secured).
+- **Capacity coming online** — site readiness, main power, MW/DC dates, rack install/cabling, dashboard ARB/DC readiness gaps — **power** pillar.
 - **VR NVL72 prep** — GB300/NVL72 rack delivery, validation, RA.
-- **Technical** — CDU commissioning, site visits, BoM, Slack, NVIS, DSX OS, Confluence RD refs.
-- **Future plans** — next commissioning gate, ARB completion, scheduled meetings.
+- **Technical** — CDU commissioning, site visits, BoM, Slack, NVIS, **operated stack** (DSX OS, NICo, managed K8s substrate, storage/network validation) — cross-check [Inference Provider Requirements](https://docs.nvidia.com/dsx/ncp/inference-provider-requirements/home) when gaps are flagged.
+- **Cloud** — production inference stack, Dynamo, multitenancy, ISP-ready platform signals.
+- **Future plans** — next commissioning gate, ARB completion, scheduled meetings; close **demand + power + operated stack** gaps.
 
-If none appear for the window, say so under **Capacity coming online**.
+If none appear for the window, say so under **Capacity coming online** (power) or **Technical** (operated stack) as appropriate.
+
+**Per-account qualification sanity check (internal — one line in mind per account):**
+- Demand: confirmed offtaker/ISP or funding path? Y / partial / no signal
+- Power: MW/site/power plan credible for scale? Y / partial / no signal
+- Operated stack: DSX OS / managed K8s / NICo path owned? Y / partial / no signal
 
 ## NVIDIA team line (required per account)
 
@@ -157,6 +183,7 @@ When useful, note: `Built from Outlook (4 Jul–17 Jul), Slack, Confluence, NCP 
 ## Quality bar
 
 - Do not fabricate facts unsupported by retrieved sources.
+- Apply the **demand + power + operated stack** qualification lens; cite [Inference Provider Requirements](https://docs.nvidia.com/dsx/ncp/inference-provider-requirements/home) only when framing operated-stack / ISP-substrate gaps — not as a substitute for account-specific mail.
 - **Reconcile conflicts**: fresh Outlook > Slack > Confluence > Salesforce > dashboard seed.
 - When folder pull is blocked, say so and note search-based fallback.
 - Keep **To/Cc** aligned with prior real sends.
