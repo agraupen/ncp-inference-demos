@@ -46,6 +46,11 @@ When drafting, **call out gaps explicitly** (e.g. “power planning active but o
 
 ## Multi-source workflow (run for each account)
 
+Every run must check all six source groups below: Outlook Inbox, Sent Items, and
+account-related subfolders; Slack; Confluence; Teams; Salesforce; and the local
+NCP RD DC Dashboard. A source failure is reported as a coverage gap, never
+silently skipped.
+
 ### 1. Outlook (primary)
 
 1. `outlook_list_messages` per folder with `start_date`, `end_date`, `limit` 100, `sort_order` desc; page with `cursor` (max 3 pages).
@@ -92,9 +97,23 @@ Daily **NCP RD DC Dashboard** — account to-dos for hardware, software, DSX OS,
 **Fetch (agent must run locally — remote fetch tools cannot reach localhost):**
 
 ```powershell
+curl.exe -s -o NUL -w "%{http_code}" --max-time 10 http://127.0.0.1:5175/
 curl.exe -s --max-time 15 http://127.0.0.1:5175/ -o _dashboard_5175.html
 python scripts/parse_dashboard_5175.py
 ```
+
+If port 5175 is down, first try the dashboard's normal launcher when its source
+project is available. Otherwise recover read-only access to the last captured
+snapshot and verify HTTP 200:
+
+```powershell
+Start-Process python -ArgumentList "scripts/serve_dashboard_5175.py" -WorkingDirectory (Get-Location) -WindowStyle Hidden
+curl.exe -s -o NUL -w "%{http_code}" --max-time 10 http://127.0.0.1:5175/
+```
+
+Label this fallback explicitly as a **snapshot**, including the dashboard's
+`Last refresh` value. Never present snapshot recovery as a successful live
+daily automation run.
 
 Or parse saved HTML for:
 
@@ -109,6 +128,11 @@ Or parse saved HTML for:
 - Do **not** let stale seed rows override fresh mail (e.g. Nebul “insufficient signal” when mail shows active Romania/JD.com threads).
 
 **Default 8 accounts on dashboard:** I3D/Ubisoft, Epic Group, OVH/OVHcloud, Infra2tokens, G-Core/Gcore, Fossefall, Verda/DataCrunch, Nebul.
+
+**Related project aliases (always search with the account):**
+
+- **G-Core** — also Aleria, AMI Labs / AMI Lab, Amsterdam / AMS1 / Serverfarm, Mbuzz. Keep Eryce AG distinct from Aleria AMS.
+- **Fossefall** — also Norway, Fyresdal / Fyresdhal, Armada / Leviathan MDC. Keep Sweden / Stockholm GB300 distinct from Norway.
 
 ## DC / site readiness signals (always hunt)
 
