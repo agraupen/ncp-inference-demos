@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Top 5 Things - NCP | EMEA | SA</title>
+</head>
+<body style="font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #000000; line-height: 1.45;">
+
+<p>Hi all,</p>
+
+<p>Period 08–28/09/2026, since the note sent on 07/09. Same book. Only what moved.</p>
+
+<p><b>1. INSIGHTS, ESCALATIONS AND HELP NEEDED</b></p>
+
+<p><b>OVHcloud networking is the escalation.</b> Miroslaw Klaba has been walked toward Cisco for the 28-rack Vera Rubin cluster that DRAGON LLM needs. OVH has already bought 6 racks from Supermicro and wants the PO for the rest, including 2SU networking. Their stated reasons are price (about 4M), a team that already runs Cisco, and a global maintenance contract. The cluster is for internal model fine-tuning, not NCP capacity as a service, and they still want to keep NCP status. Gabriele's position on 11/09 is that a Cisco design is Cisco's to own: we can help their SA, we do not run an ARB, and NVIS and the NCP packages come off. On 17/09 OVH started to doubt the Cisco proposal. By 21/09 their Cisco quote was switching for the full 2SU with cables and transceivers only for the first SU, which is the same shape we already quote. PNY has been asked to price 1 SU of switching with optics and cabling for five compute racks, from the 09/09 BOM, alongside the 2SU case. Action: one written position on whether a Cisco-networked internal cluster keeps NCP status, and a single PNY quote so purchasing is not choosing between two stories.</p>
+
+<p><b>Nebul's map does not match across the two notes.</b> The 07/09 SA update was Romania, about 139 GB300 NVL72, ~10K GPUs and ~23 MW, with JD.com as the anchor. Christophe's AM note on 09/09 is Brussels (16 GB300 NVL72) and Amsterdam (144 GB300 NVL72), with JD.com in Brussels and Andromeda AI, Baseten and Process AI in Amsterdam. Help needed: one site list before the next customer alignment. NEBUL has separately named Baseten as an offtaker of a future cluster (Christophe, 10/09).</p>
+
+<p><b>Verda's gate is the DC questionnaire.</b> It was raised again on the 11/09 weekly and was still open on 15/09. Without site data the reference design stalls. On the SMC order (13/09), Jorge's position is that Verda will pay for what brings compute online now, and will not fund optics and gear that sit idle.</p>
+
+<p><b>2. NVIDIA CLOUD PROVIDERS</b></p>
+
+<p><b>OVHcloud.</b> (AM: Christophe Bour. NCP SA: Aviv Graupen, with Yannick Langlois shadowing. Kevin Kaganas. Principal SA: Gabriele Paciucci.) The NVIDIA BOM they are holding, dated 09/09, is a 28-rack final scope: 5 racks in FY27 and 23 in FY28, two optimised 1SU Spectrum-6 blocks, and the final 2SU switches bought in FY27. HPS and control-plane nodes stay at the original 12 VAST appliances and 12 control nodes. Cedric's transceiver correction (MMS1X00-NS400) was applied the same day. The NVIDIA–Cisco design call was postponed on 14/09 and the replacement invite was cancelled on 16/09. Francois Lemarchand asked whether Yannick can take a first pass. Recommendation: Aviv stays on point until the Cisco-versus-NVIDIA decision is written down, with Yannick on every thread.</p>
+
+<p><b>Nebul.</b> (AM: Christophe Bour. NCP SA: Aviv Graupen. Networking: Emre Ogmen. Arjan Setz, Arnold Juffer.) Kris Meenhuis has portal access, and NVDebug 1109504 is on the NCP portal (08/09). The 15/09 inference sync posted the DDN × Nebul × NVIDIA KV-cache note. The Dynamo bi-weekly was reset on 07/09. Dmitry is following it. A status call was on the calendar for 28/09. Christophe is out that afternoon and asked to move it. Arjan accepted. Demand, power and the operated stack stay open until the Romania versus Brussels/Amsterdam list is one list.</p>
+
+<p><b>Verda (DataCrunch).</b> (AM: Max Druey, Neil Christie. NCP SA: Aviv Graupen. TAM: Greg Kosiorowski. Networking: Emre Ogmen. DevRel: Alexander Kurakin.) The deployment plan sent on 10/09 is UK 72 HGX B300, US 72 HGX B300, and Germany 144 HGX B300. The IB east-west estimate assumes 12 storage appliances and 12 control-plane appliances, and UK/US networking status is still needed so SMC can plan. On 14/09 Adrian confirmed IB is acceptable on the VR NVL72 / Rubin NVL8 draft, the storage vendor is still open, and 100 storage servers is enough for now. Slinky: Alex is scheduling with Paul, and the launch meeting was still on the calendar on 24/09. Marlow does not have Slinky inside DSX OS and is willing to help the integration. B300 FieldDiag stays with SMC. Srikanth confirmed on 10/09 that SMC must not forward NVIDIA diag releases to the end customer, and must ship an SMC-validated build. LPX: Antonio wants the programming-model and memory-hierarchy material so Verda can plan. The VR reference-design PID revision Dell asked for was still not visible on 15/09. Facilities: Michael Holm will take a DSX facilities session and bring their design firm. The DC information workbook is the item that unblocks the reference design.</p>
+
+<p><b>Fossefall.</b> (NCP SA: Aviv Graupen. AM: Max Druey, Ed Oakes. Nextron: Hakon Gutierrez, Thomas Kappfjell.) Norway moved. After the 10/09 meeting with Espen Fjeldberg and Anders Bakken, Nextron confirmed 40 racks, matching five Armada MDCs. The sixth MDC is dropped. The network BOM has to be re-cut from the 48-rack draft. Storage size is still unknown. Thomas can work from the current assumptions until it lands. Nextron says the financials and end-customer segments are now clear enough to take the next step. No named offtaker is in the thread, and there is no new Sweden / Package 3 signal. Power stays on the prior Norway note. The operated stack is not in this conversation.</p>
+
+<p><b>G-Core.</b> (NCP SA: Aviv Graupen. AM: Christophe Bour. Networking BOM: Raf Vervloessem. NVIS: Mali Khalifa.) Navitas hit a temporary funding snag. Pete Overell (10/09) says a new 100% funder is stepping in, the data room is being refreshed, and VAST is now the C&amp;D design at 500TB rather than 1PB. The aim is an order inside about a month. Switch counts on their BOM match ours. The north-south transceiver count (42) does not, and that explanation is still open. Eryce (432 HGX B300) had no new technical mail. It remains on Christophe's 09/09 book, with the Denmark / Northern Ireland site still dependent on a partner who will fund the data centre. Aleria Amsterdam is not quiet. An ARB and the MBUZZ-NVIS weekly both sat on 17/09. In the ARB chat, Pol Maso Ayats checked SKU MMA1L30-CM, a 100GbE QSFP28 LR4 transceiver. The Serverfarm guarantee letter from the 07/09 note is still the facility blocker. The inference sync was still on the calendar on 22/09. The enterprise support renewal (23/09) is networking gear and goes to networking-contracts. G-Core accepted the Dynamo session at GTC Berlin (17/09).</p>
+
+<p><b>I3D (Ubisoft).</b> (AM: Laurence Rowe. NCP SA: Aviv Graupen.) The datacentre thread moved from DSX Air to a DSX SIM follow-on. Laurence is setting the call. As of 23/09, Dima can do any day the following week except Friday. Bryan Lee and Roy C Anthony are being invited. No new financing or site decision in this window.</p>
+
+<p><b>Infra2tokens.</b> No new mail in the folder since 07/09.</p>
+
+<p><b>Epic Group.</b> The folder resolved. It has no messages since 07/09.</p>
+
+<p>Thanks,<br>Aviv</p>
+
+<p style="font-size: 10pt; color: #444444;"><i>Sources: Outlook 08–28/09/2026, including the Epic Group folder (empty this window). Teams meeting chats were read. The NCP RD DC dashboard is up at localhost:5175 from the 30 Jun 2026 seed snapshot; those rows do not override the September mail. Slack and Salesforce both failed because maas.prd.astra.nvidia.com does not resolve from this machine. Confluence has no API token stored.</i></p>
+
+</body>
+</html>

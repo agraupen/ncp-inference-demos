@@ -51,6 +51,23 @@ account-related subfolders; Slack; Confluence; Teams; Salesforce; and the local
 NCP RD DC Dashboard. A source failure is reported as a coverage gap, never
 silently skipped.
 
+## Coverage recovery (mandatory before any gap line)
+
+Do not finish a draft with "Slack was not signed in", "Teams / Confluence /
+Salesforce unavailable", "dashboard was down", or "Epic's folder did not
+resolve" until the matching recovery below has been tried. A failed MCP health
+check is not a failed query. Use the CLI fallback, then query.
+
+| Gap | Recovery, in order |
+|-----|--------------------|
+| Outlook MCP down or a folder 404s | `outlook-cli` on the shared Entra cache. If `Epic`, `Epic Group`, or `I3D` does not resolve, `outlook-cli folder list` and match the real display name, then `--all-folders --query` for that account since T0. |
+| Slack MCP down or unsigned | `slack-cli auth status`. If unsigned, `slack-cli auth init`, give the user the URL, then `slack-cli auth complete '<callback-url>'`. Search only after auth succeeds. If `maas.prd.astra.nvidia.com` does not resolve, retry once and report the DNS failure. Do not write "Slack was not signed in" for a DNS failure. |
+| Confluence MCP down | `confluence-cli auth status`, then `confluence-cli` search. If no API token is stored, the one allowed gap line is the exact `confluence-cli auth set-token` step. Do not skip the search when a token exists. |
+| Teams MCP down | `teams-cli` (same Entra cache as Outlook). `teams-cli chat list` and read chats whose topic matches an account since T0. |
+| Salesforce MCP discovery fails | Still run `sfdc-cli search` / `sfdc-cli query`. Do not treat a failed `capability.mcp-tools` check as an empty pipeline. |
+| Dashboard port 5175 down | Serve `scripts/serve_dashboard_5175.py` from `_dashboard_5175.html`, confirm HTTP 200, parse, and label it a snapshot with the `Last refresh` value. Stale seed never overrides fresher mail. |
+| Epic missing | Try `Epic`, `Epic Group`, and `Epic Games`, then a mailbox-wide `Epic` search since T0. Say which name was used. Absence after that search is "no new signal", not an unresolved folder. |
+
 ### 1. Outlook (primary)
 
 1. `outlook_list_messages` per folder with `start_date`, `end_date`, `limit` 100, `sort_order` desc; page with `cursor` (max 3 pages).
