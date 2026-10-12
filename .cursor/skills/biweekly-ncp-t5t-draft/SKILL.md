@@ -61,8 +61,8 @@ check is not a failed query. Use the CLI fallback, then query.
 | Gap | Recovery, in order |
 |-----|--------------------|
 | Outlook MCP down or a folder 404s | `outlook-cli` on the shared Entra cache. If `Epic`, `Epic Group`, or `I3D` does not resolve, `outlook-cli folder list` and match the real display name, then `--all-folders --query` for that account since T0. |
-| Slack MCP down or unsigned | `slack-cli auth status`. If unsigned, `slack-cli auth init`, give the user the URL, then `slack-cli auth complete '<callback-url>'`. Search only after auth succeeds. If `maas.prd.astra.nvidia.com` does not resolve, retry once and report the DNS failure. Do not write "Slack was not signed in" for a DNS failure. |
-| Confluence MCP down | `confluence-cli auth status`, then `confluence-cli` search. If no API token is stored, the one allowed gap line is the exact `confluence-cli auth set-token` step. Do not skip the search when a token exists. |
+| Slack MCP down or unsigned | `slack-cli auth status`. If unsigned, `slack-cli auth init`, open the URL, then `slack-cli auth complete '<callback-url>'`. Search only after auth succeeds. If login is still pending, say the callback has not come back. If `maas.prd.astra.nvidia.com` does not resolve, retry once and report the DNS failure. Do not write "Slack was not signed in" for a DNS failure or a pending login. |
+| Confluence MCP down | Authenticate `user-MaaS Confluence` and run `confluence_search` for each account. Use `confluence-cli` only when that MCP is down and a token is already stored. If both are unavailable, the one allowed gap line is the exact `confluence-cli auth set-token` step. Do not skip the search when either path works. |
 | Teams MCP down | `teams-cli` (same Entra cache as Outlook). `teams-cli chat list` and read chats whose topic matches an account since T0. |
 | Salesforce MCP discovery fails | Still run `sfdc-cli search` / `sfdc-cli query`. Do not treat a failed `capability.mcp-tools` check as an empty pipeline. |
 | Dashboard port 5175 down | Serve `scripts/serve_dashboard_5175.py` from `_dashboard_5175.html`, confirm HTTP 200, parse, and label it a snapshot with the `Last refresh` value. Stale seed never overrides fresher mail. |
@@ -189,25 +189,26 @@ First line of each block after account name:
 
 Pull names from mail To/Cc/threads, prior T5T sends, and dashboard owners. If unknown: `(NVIDIA team: not confirmed in internal mail yet)`.
 
-## Output format (compact Boris-style)
+## Output format (account template)
 
-User-facing T5T uses **one paragraph per account** (not bullet lists). Pattern:
+User-facing T5T uses **one block per account**, in this order. Write prose under each label. Keep dates as DD/MM, name people, and put the next action in Future plans.
 
 ```
-Hi all,
-
-<Account>: (<NVIDIA team line>)
+<Account>
+Org: @Name Role, @Name Role
 Offtake: …
-Cloud: …
 Capacity coming online: …
-VR NVL72 prep: …
-Technical: …
+Technical workstreams: …
 Future plans: …
 ```
 
-- Separate sub-themes inside **Technical** with semicolons or short labels (e.g. `DSX OS: …; Slack: …; Confluence: …`).
-- Use `No material update` / `No new internal signal` when thin — do not pad.
-- Close email with `Thanks,` + sender name only (no per-account Lida/Laura footer unless mail supports it).
+- Org is the NVIDIA team line. Use `@Name` and the role (AM, NCP SA, Networking SA, DevRel, NVIS, CPM).
+- Offtake carries demand: anchor tenant, ISP, PO, opp stage.
+- Capacity coming online carries power, racks, GPUs, and site dates.
+- Technical workstreams carries design, ARB, BOM, packages, and the operated stack.
+- Future plans is dated next steps and the open ask.
+- Use `No new signal` when a section is thin. Do not pad.
+- Close with `Thanks,` and the sender name.
 
 ## Source footer (optional, one line after Hi all)
 

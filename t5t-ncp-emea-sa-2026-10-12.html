@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Top 5 Things - NCP | EMEA | SA</title>
+</head>
+<body style="font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #000000; line-height: 1.45;">
+
+<p>Hi all,</p>
+
+<p>Period 29/09–12/10/2026, since the note sent on 28/09.</p>
+
+<p><b>OVHcloud</b><br>
+Org: @Christophe Bour AM, @Yannick Langlois NCP SA, @Aviv Graupen (handed this opp to Yannick the week of 21/09), @Kevin Kaganas Networking SA, @Gabriele Paciucci Principal SA</p>
+<p><b>Offtake:</b> The cluster is still OVH's internal DRAGON LLM fine-tune. On 29/09 Aviv wrote that OVH had cancelled the Cisco path and come back to the NCP reference design with OVH and Bull. Salesforce on 28/09 has Miro's phase-2 Vera Rubin SMC opportunity and the 4x VR200 opportunity as Sales Won, and phase 3 (December 2026, SMC) in Qualification. A 100-node HGX Rubin NVL8 quote (Gigabyte, Tremey) is in Proposal, close 29/11. On 01/10 Yannick reported that SMC had sent a PO the previous week for the 5 racks, and that OVH was ready to cancel it.</p>
+<p><b>Capacity coming online:</b> The 09/09 NVIDIA BOM is the 28-rack scope (5 in FY27, 23 in FY28). The files in hand on 05/10 are the 5-rack phased BOMs (09/09 and 15/09, 2U VR NVL72 Spectrum-X). On 28/09 Yannick had a 1 SU BOM from Bull, with a Foxconn configuration check the next day. On 29/09 he asked Maxence whether Bull had the phased BOM Aviv sent in mid-September. On 01/10 OVH still had not sent it; Yannick sent it, and Bull needed pricing for an offer due 02/10. HPS and control-plane stay at 12 VAST appliances and 12 control nodes. Those counts came from OVH.</p>
+<p><b>Technical workstreams:</b> The live design is the NCP reference design with Bull, after the Cisco cancellation on 29/09. Neil had asked that morning whether he should keep supporting a Cisco path, and Aviv pointed him at Yannick. On 05/10 the package call changed: package C stays and package 3 drops. The BOM had been written as package 3 + 1, with NVIS included. Coolant guidance given on 28/09 is PG25, after OVH asked about deionized water. PNY has been asked to price 1 SU of switching plus optics and cabling for five racks, beside the 2SU case. Yannick is waiting on Laura for how to answer a customer who wants a different software stack.</p>
+<p><b>Future plans:</b> Confirm whether OVH cancelled the 5-rack SMC PO, and what Bull offered after 02/10. Lock package C in the phased BOM. One PNY quote so purchasing has a single NVIDIA number.</p>
+
+<p><b>Nebul</b><br>
+Org: @Christophe Bour AM, @Aviv Graupen NCP SA, @Emre Ogmen Networking SA, @Arjan Setz, @Arnold Juffer, @Raf Vervloessem Networking BOM, @Mali Khalifa NVIS, @Dmitry Mironov</p>
+<p><b>Offtake:</b> Brussels is the JD.com quote: 16 GB300 NVL72, 4 MW, east-west IB, in Proposal, close 24/01/2027 (Salesforce, 28/09). Amsterdam is the large book: 144 GB300 NVL72, 10k GPUs, 23 MW, in Needs Analysis, close 16/02/2027, plus a separate 139x Amsterdam networking line. Baseten is a named future offtaker (Christophe, 10/09), with Andromeda AI and Process AI on Christophe's 09/09 Amsterdam list. The Romania Vera Rubin opportunity (319 NVL72, 23k GPUs, 88 MW) was Closed Lost on 28/09.</p>
+<p><b>Capacity coming online:</b> Lenovo is closing the Brussels (Machelen) contract for that 4 MW, 1k GB300, 16-rack IB scope. On the additional BOM (GB300 1,152 GPUs and Vera Rubin NVL72 1,008 GPUs), Vladimir Prodanovic reported on 28/09 that the DC-provider visit went well, he will sign an NDA and share the design documents, and he expects the hall ready in 9–12 months. 1,152 GPUs is 16 GB300 racks.</p>
+<p><b>Technical workstreams:</b> On 05/10 Nebul and Lenovo asked to lead with Package 2 and Package O, and asked Mali for the Package O SOW before the BOM changes. On 06/10 and again on 09/10, Lenovo still needed the Package 2 price and the Package O SOW from Raf, Mali and Christophe to finish the contract. PIDs 1145739 and 1161311 were published to Nebul on 07/10. PID 1164039 cannot be published; that sits with Constant Sanciaume. The NVFP4 report shows serving stability and performance; Nebul's model-quality bar is still open, with a follow-up for Dmitry. On 07/10 Dmitry asked Nebul to co-submit a KubeCon Europe 2027 talk on running multiple models on one GPU. The CFP closed on 11/10. A MaxLPS introduction was requested on 08/10 for the following week. The operated stack on the Amsterdam 23 MW book is still open.</p>
+<p><b>Future plans:</b> Package 2 quote and Package O SOW to Lenovo. MaxLPS introduction. Keep Brussels 16-rack and Amsterdam ~10k as the working site list.</p>
+
+<p><b>Verda (DataCrunch)</b><br>
+Org: @Max Druey AM, @Neil Christie AM, @Aviv Graupen NCP SA, @Greg Kosiorowski TAM, @Emre Ogmen Networking SA, @Alexander Kurakin DevRel</p>
+<p><b>Offtake:</b> Salesforce on 28/09 marks Sales Won on 72 VR NVL72 (SMC, close 31/12/2026), 128 GB300 NVL72 (Gigabyte, close 31/12/2026), 576 Rubin NVL8 nodes (Compal, close 31/01/2027), and 4 VR NVL72 racks in Santa Clara (SMC, close 17/11/2026). Opportunity O-763783 moved to Closed Lost the same day; Neil asked to add Aviv as SA on that notice. Call minutes Alexander shared on 07/10: bare-metal clusters are about 60% of the business. Some customers take GPUs only and build their own control plane, some want Verda to run Kubernetes, and some want Slurm. A large offtaker taking a whole data centre, or half of one, was set aside as custom engineering.</p>
+<p><b>Capacity coming online:</b> The 10/09 deployment plan is still UK 72 HGX B300, US 72 HGX B300, and Germany 144 HGX B300. UK and US networking status is still the input SMC needs. The DC information workbook was still the reference-design gate on 15/09. Two support quotes were still Proposal on 28/09: 720 B300 networking (close 30/11) and 160 GB300 networking (close 31/12).</p>
+<p><b>Technical workstreams:</b> Retail bare metal as a service is on the roadmap. On the same 07/10 minutes, Paul said Verda is not in a position to make that secure for the customer right now. The example was two to four B300 nodes, networking, and an OS of the customer's choice, with Kubernetes or Slurm left to the customer. IB is acceptable on the VR NVL72 / Rubin NVL8 draft (Adrian, 14/09). The storage vendor is open, and 100 storage servers is enough for now. Slinky sits outside DSX OS; Marlow will help the integration. B300 FieldDiag stays with SMC. The confidential-computing blog was still unpublished on 28/09, pending a sentence that names AMD. On 09/10 Alexander asked who owns Verda networking on the AM side. A Verda call ran that afternoon.</p>
+<p><b>Future plans:</b> The DC workbook. A name for the networking AM. Aviv added as SA on O-763783, which Neil already requested.</p>
+
+<p><b>Fossefall</b><br>
+Org: @Aviv Graupen NCP SA, @Max Druey AM, @Ed Oakes AM, Nextron Hakon Gutierrez and Thomas Kappfjell, Dell Robin Cotgrove, @Malte Bors Networking</p>
+<p><b>Offtake:</b> No named offtaker in the thread. Dell's working premise on 01/10 is one tenant on this deployment. NTT is now in the deal, and Robin's hope is that this unblocks it. Salesforce on 28/09 has the Fyresdal 2,880-GPU project in Negotiation across compute, NCP software and support, NVIS, and networking, close 30/04/2027.</p>
+<p><b>Capacity coming online:</b> Norway is 40 racks, five Armada MDCs. The sixth MDC is dropped. 2,880 GPUs is that scope. Power stays on the prior Norway note: Fyresdal, Fossefall-owned, about six months to construct, power contracted. A second site showed up on 06/10. Computacenter site-2 DR, with Malte's updated quote for networking plus NCP software and support, Package 2. Storage size on the main Norway design is still unknown.</p>
+<p><b>Technical workstreams:</b> Dell is designing to RD-12505-001-V5 and asked on 01/10 whether Fossefall is registered or preferred. The external Slack channel is up, with Stian Broen, Espen Fjeldberg and Richard Bjorntvedt. On 07/10 Max asked to run the NCP RD presentation so Fossefall sees the process and the expectations. The operated stack is still open. A separate Norway DC networking opportunity was Closed Lost on 15/09. The networking line on the 2,880-GPU project is still in Negotiation.</p>
+<p><b>Future plans:</b> Nextron (Thomas) booked an hour on 08/10 at 14:30. A GTC networking meeting if Fossefall attends, with Amit Katz, Gadi Godanyan and Moshe Lavi, requested 07/10. Run the NCP RD presentation. Answer registered versus preferred.</p>
+
+<p><b>G-Core</b><br>
+Org: @Aviv Graupen NCP SA, @Christophe Bour AM, @Raf Vervloessem Networking BOM, @Mali Khalifa NVIS, @Alexander Nardella, @Stefaan Eens</p>
+<p><b>Offtake:</b> Aleria Netherlands, 388 HGX B300 SMC for AMI Labs, was in Negotiation on 28/09 with close 01/10/2026. On 01/10, in the MBUZZ-NVIS weekly, Aleria told the team and the offtaker they want to move the data centre from Amsterdam (Serverfarm) to a different data centre in Switzerland. Eryce, 432 HGX B300 and 3,456 GPUs, is in Proposal, close 25/01/2027, networking line updated 22/09. Navitas: Pete Overell on 10/09 has a new 100% funder and a refreshed data room, with VAST now the C&amp;D design at 500TB. The Denmark 2x GB300 NVL72 opportunity was still Needs Analysis on 28/09.</p>
+<p><b>Capacity coming online:</b> The Amsterdam facility blocker on the prior note was the Serverfarm parent guarantee. That site is now in question if the Switzerland move holds. Switch counts on the Navitas BOM match. The north-south transceiver count of 42 still needs an explanation. The Denmark / Northern Ireland hall still depends on a partner who will fund the data centre.</p>
+<p><b>Technical workstreams:</b> If the Switzerland move is confirmed, the Amsterdam ARB starts again. Hashim was asked that on 01/10. Networking support renewal: the entitlement report went out on 29/09, cables and transceivers are not renewable, and the serial-number report went out on 05/10 after Daniil Belianin asked again. G-Core accepted the Dynamo session at GTC Berlin (17/09).</p>
+<p><b>Future plans:</b> Confirm the Switzerland site and whether the ARB restarts. Close the transceiver-count explanation. Navitas order, which on 10/09 was aimed inside about a month.</p>
+
+<p><b>I3D (Ubisoft)</b><br>
+Org: @Laurence Rowe AM, @Aviv Graupen NCP SA</p>
+<p><b>Offtake:</b> No new financing or named offtaker in this window. Salesforce has a separate Ubisoft opportunity, 172 HGX B300 Maarifa SMC, in Qualification, updated 28/09.</p>
+<p><b>Capacity coming online:</b> No new site decision in this window.</p>
+<p><b>Technical workstreams:</b> The DSX SIM session with i3D and Ubisoft ran on 30/09. Bryan Lee presented. Laurence sent the summary the same day and opened follow-up questions. Roy C Anthony had confirmed Bryan's coverage on 29/09. Alexander Nardella added Gabriele for visibility. The operated-stack owner is still open.</p>
+<p><b>Future plans:</b> Close the follow-ups Laurence listed on the 30/09 summary. The dashboard seed still asks for a DSX OS owner. That row is the 30/06 seed.</p>
+
+<p><b>Infra2tokens</b><br>
+Org: NVIDIA team not confirmed in this window</p>
+<p><b>Offtake:</b> No new signal. The folder has no messages since 28/09, and Salesforce has no opportunity modified since 07/09.</p>
+<p><b>Capacity coming online:</b> No new signal.</p>
+<p><b>Technical workstreams:</b> No new signal.</p>
+<p><b>Future plans:</b> No new signal.</p>
+
+<p><b>Epic Group</b><br>
+Org: NVIDIA team not confirmed in this window</p>
+<p><b>Offtake:</b> No new signal. The Epic Group folder resolved and has no messages since 28/09. A Salesforce name search on 28/09 returned Epic Games and EPC Group, which are different accounts, and no Epic Group NCP opportunity.</p>
+<p><b>Capacity coming online:</b> No new signal.</p>
+<p><b>Technical workstreams:</b> No new signal.</p>
+<p><b>Future plans:</b> No new signal.</p>
+
+<p>Thanks,<br>Aviv</p>
+
+<p style="font-size: 10pt; color: #444444;"><i>Sources, 29/09–12/10/2026: Outlook folders Nebul, Verda (DataCrunch), Fossefall, G-Core, OVH, Infra2tokens (empty) and Epic Group (empty). I3D has no folder under that name; the mailbox search found the 30/09 DSX SIM session. Slack searched for Nebul, Verda, Fossefall, OVH, G-Core, I3D, Ubisoft and Epic Group. Teams chat search read. Salesforce opportunity search from 28/09, plus the O-763783 Closed Lost notice. Confluence search returned the NCP Reference Design Matrix (updated 02/10) and no account-specific page. Dashboard is up at localhost:5175 from the 30 Jun 2026 seed; those rows stay behind the September and October mail.</i></p>
+
+</body>
+</html>
